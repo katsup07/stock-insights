@@ -1,19 +1,29 @@
-// export const useStockHistory = () => {
-//   const [stockHistory, setStockHistory] = useState<any>(null);
-//   const [loading, setLoading] = useState(true);
-//   const [error, setError] = useState<string | null>(null);
+import { useEffect, useState } from "react";
+import { ApiClient } from "../../../api/ApiClient";
+import { ChartDataPoint, StockData } from "./interfaces";
+import { processStockData } from "./utils";
 
-//   const fetchStockHistory = async (symbol: string) => {
-//     try {
-//       setLoading(true);
-//       const response = await ApiClient.getInstance().getStockHistory(symbol);
-//       setStockHistory(response.data);
-//     } catch (err) {
-//       setError('Failed to fetch stock history');
-//     } finally {
-//       setLoading(false);
-//     }
-//   };
+const apiClient = ApiClient.getInstance();
 
-//   return { stockHistory, loading, error, fetchStockHistory };
-// }
+export const useStockHistory = (setChartData: React.Dispatch<React.SetStateAction<ChartDataPoint[]>>, selectedTimeframe: string) => {
+  const [stockHistory, setStockHistory] = useState<StockData | null>(null);
+  // const [loading, setLoading] = useState(true); // TODO: Implement loading state in component
+  // const [error, setError] = useState<string | null>(null); // TODO: Implement error handling in component
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await apiClient.getStockHistory('AAPL'); // Example symbol
+        setStockHistory(data);
+        const processedData = processStockData(data, selectedTimeframe);
+        setChartData(processedData);
+      } catch (error) {
+        console.error('Error fetching stock data:', error);
+      }
+    };
+
+    fetchData();
+  }, [selectedTimeframe, setChartData]);
+
+  return { stockHistory };
+}
