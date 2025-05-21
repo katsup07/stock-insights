@@ -11,6 +11,7 @@ export class StocksController {
   @Get(':symbol')
   async getStockData(@Param('symbol') symbol: string): Promise<any> { // TODO: Define a proper type for the stock data
     console.log(`Fetching stock data in controller for symbol: ${symbol}`);
+    
     return await this.stocksService.getStockData(symbol);
   }
 
