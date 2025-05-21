@@ -1,13 +1,13 @@
 import { FC } from 'react';
 import Navbar from './Navbar';
 import StockSearch from './StockSearch';
-import ChartArea from './ChartArea';
+import ChartArea from './chart/ChartArea';
 
 const Layout: FC = () => {
   return (
     <div className="min-h-screen bg-gray-900 text-white flex flex-col">
       <Navbar />
-      <main className="container mx-auto p-4 flex flex-col flex-grow">
+      <main className="container mx-auto p-2 flex flex-col flex-grow">
         <StockSearch />
         <ChartArea />
       </main>
