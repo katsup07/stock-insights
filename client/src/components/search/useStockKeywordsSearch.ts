@@ -5,7 +5,7 @@ import { StockSearchResponse } from "../../api/types/stockSearch";
 
 export const useStockKeywordsSearch = () => {
   const [searchKeywords, setSearchKeywords] = useState<string>('');
-  const [searchResults, setSearchResults] = useState<StockSearchResponse[]>([]);
+  const [searchResults, setSearchResults] = useState<StockSearchResponse | null>(null);
   // const [loading, setLoading] = useState<boolean>(false); // TODO: Add loading state and error handling
   // const [error, setError] = useState<string | null>(null);
 

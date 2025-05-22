@@ -1,9 +1,10 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { baseApiUrl } from "./urls";
+import { StockSearchResponse } from "./types/stockSearch";
+import { StockTimeSeriesResponse } from "./types/stockTimeSeries";
 
 export class StocksService {
 
-  async getStocksHistory(symbol: string): Promise<any> {
+  async getStocksHistory(symbol: string): Promise<StockTimeSeriesResponse> {
    const response = await fetch(`${baseApiUrl}/stocks/${symbol}`);
 
         if (!response.ok) 
@@ -12,7 +13,7 @@ export class StocksService {
     return await response.json();
   }
 
-  async getStocksByKeyword(keywords: string): Promise<any> {
+  async getStocksByKeyword(keywords: string): Promise<StockSearchResponse> {
     const response = await fetch(`${baseApiUrl}/stocks/keywords/${keywords}`);
 
     if (!response.ok) 

@@ -3,7 +3,7 @@ import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from 'recharts';
 import TimeFrameSelectors from './TimeFrameSelectors.tsx';
-import { ChartDataPoint, timeframes } from './interfaces.ts';
+import { ChartDataPoint, timeframes } from './types.ts';
 import { useStockHistory } from './useStockHistory.ts';
 import { formatDate, processStockData } from './utils.ts';
 
@@ -22,10 +22,9 @@ const ChartArea: FC = () => {
 
   return (
     <div className="p-4 flex-grow">
-      <div className="bg-gray-800 h-full rounded-lg shadow-lg p-6 text-white">
-        <div className="flex justify-between items-center mb-4">
+      <div className="bg-gray-800 h-full rounded-lg shadow-lg p-6 text-white">        <div className="flex justify-between items-center mb-4">
           <h2 className="text-2xl font-semibold">
-            {stockHistory?.['Meta Data']?.['2. Symbol'] || 'Stock'} Chart
+            {stockHistory?.metaData?.symbol || 'Stock'} Chart
           </h2>
           <TimeFrameSelectors 
             timeframes={timeframes} 

@@ -1,11 +1,11 @@
-import { ChartDataPoint, StockData } from "./interfaces";
+import { ChartDataPoint } from "./types";
+import { StockTimeSeriesResponse } from "../../api/types/stockTimeSeries";
 
 // Process stock data to format suitable for chart
-  export const processStockData = (data: StockData, timeframe: string): ChartDataPoint[] => {
-    if (!data || !data['Weekly Time Series']) return [];
+  export const processStockData = (data: StockTimeSeriesResponse, timeframe: string): ChartDataPoint[] => {
+    if (!data || !data.timeSeriesData || data.timeSeriesData.length === 0) return [];
 
-    const timeSeries = data['Weekly Time Series'];
-    const dates = Object.keys(timeSeries).sort(); // Sort dates in ascending order    // Get current date and calculate the start date based on timeframe
+    // Get current date and calculate the start date based on timeframe
     const currentDate = new Date();
     const startDate = new Date();
     
@@ -33,12 +33,12 @@ import { ChartDataPoint, StockData } from "./interfaces";
     }
 
     // Filter data based on timeframe
-    const filteredDates = dates.filter(dateStr => new Date(dateStr) >= startDate);
+    const filteredData = data.timeSeriesData.filter(point => new Date(point.date) >= startDate);
 
     // Map the data to the format expected by the chart
-    return filteredDates.map(date => ({
-      date: date,
-      price: parseFloat(timeSeries[date]['4. close'])
+    return [...filteredData].map(point => ({
+      date: point.date,
+      price: point.close
     })).reverse(); // Reverse to show oldest to newest
   };
 
