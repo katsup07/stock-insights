@@ -30,7 +30,13 @@ The Stock Insights Application provides a digital platform for searching, analyz
 - 💹 Real-time stock information including price, volume, and market data
 - 🔄 Responsive design for optimal viewing on any device
 - 🌓 Modern and clean UI in Dark Mode
+- 
+<br>
+
 ![Vite-React-TS-05-22-2025_08_33_PM (1)](https://github.com/user-attachments/assets/e5b9a5b2-481c-46f1-b31c-705466fc1158)
+
+<br>
+
 ![Vite-React-TS-05-22-2025_08_33_PM](https://github.com/user-attachments/assets/f532dfc3-ea34-430a-9b77-2fcbb19652d8)
 
 
