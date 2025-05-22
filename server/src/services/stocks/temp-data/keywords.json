@@ -1,48 +1,114 @@
 {
 "bestMatches":[
-  {
-  "1. symbol":"AAPL",
-  "2. name":"Apple Inc",
-  "3. type":"Equity",
-  "4. region":"United States",
-  "5. marketOpen":"09:30",
-  "6. marketClose":"16:00",
-  "7. timezone":"UTC-04",
-  "8. currency":"USD",
-  "9. matchScore":"1.0000"
-  },
-  {
-  "1. symbol":"AAPL.TRT",
-  "2. name":"Apple CDR (CAD Hedged)",
-  "3. type":"Equity",
-  "4. region":"Toronto",
-  "5. marketOpen":"09:30",
-  "6. marketClose":"16:00",
-  "7. timezone":"UTC-05",
-  "8. currency":"CAD",
-  "9. matchScore":"0.7273"
-  },
-  {
-  "1. symbol":"AAPL34.SAO",
-  "2. name":"Apple Inc",
-  "3. type":"Equity",
-  "4. region":"Brazil/Sao Paolo",
-  "5. marketOpen":"10:00",
-  "6. marketClose":"17:30",
-  "7. timezone":"UTC-03",
-  "8. currency":"BRL",
-  "9. matchScore":"0.6154"
-  },
-  {
-  "1. symbol":"AAPLUSTRAD.BSE",
-  "2. name":"AA Plus Tradelink Ltd",
-  "3. type":"Equity",
-  "4. region":"India/Bombay",
-  "5. marketOpen":"09:15",
-  "6. marketClose":"15:30",
-  "7. timezone":"UTC+5.5",
-  "8. currency":"INR",
-  "9. matchScore":"0.4706"
-  }
+{
+"1. symbol":"AAP",
+"2. name":"Advance Auto Parts Inc",
+"3. type":"Equity",
+"4. region":"United States",
+"5. marketOpen":"09:30",
+"6. marketClose":"16:00",
+"7. timezone":"UTC-04",
+"8. currency":"USD",
+"9. matchScore":"1.0000"
+},
+{
+"1. symbol":"AAPB",
+"2. name":"GRANITESHARES 2X LONG AAPL DAILY ETF ",
+"3. type":"ETF",
+"4. region":"United States",
+"5. marketOpen":"09:30",
+"6. marketClose":"16:00",
+"7. timezone":"UTC-04",
+"8. currency":"USD",
+"9. matchScore":"0.8571"
+},
+{
+"1. symbol":"AAPD",
+"2. name":"DIREXION DAILY AAPL BEAR 1X SHARES ",
+"3. type":"ETF",
+"4. region":"United States",
+"5. marketOpen":"09:30",
+"6. marketClose":"16:00",
+"7. timezone":"UTC-04",
+"8. currency":"USD",
+"9. matchScore":"0.8571"
+},
+{
+"1. symbol":"AAPG",
+"2. name":"Ascentage Pharma Group International",
+"3. type":"Equity",
+"4. region":"United States",
+"5. marketOpen":"09:30",
+"6. marketClose":"16:00",
+"7. timezone":"UTC-04",
+"8. currency":"USD",
+"9. matchScore":"0.8571"
+},
+{
+"1. symbol":"AAPH",
+"2. name":"Amer PetroHunter Inc",
+"3. type":"Equity",
+"4. region":"United States",
+"5. marketOpen":"09:30",
+"6. marketClose":"16:00",
+"7. timezone":"UTC-04",
+"8. currency":"USD",
+"9. matchScore":"0.8571"
+},
+{
+"1. symbol":"AAPI",
+"2. name":"Apple iSports Group Inc",
+"3. type":"Equity",
+"4. region":"United States",
+"5. marketOpen":"09:30",
+"6. marketClose":"16:00",
+"7. timezone":"UTC-04",
+"8. currency":"USD",
+"9. matchScore":"0.8571"
+},
+{
+"1. symbol":"AAPAX",
+"2. name":"AMERICAN BEACON RETIREMENT INCOME AND APPRECIATION FUND A CLASS",
+"3. type":"Mutual Fund",
+"4. region":"United States",
+"5. marketOpen":"09:30",
+"6. marketClose":"16:00",
+"7. timezone":"UTC-04",
+"8. currency":"USD",
+"9. matchScore":"0.7500"
+},
+{
+"1. symbol":"AAPCF",
+"2. name":"Atlantic Alliance Partnership Corp",
+"3. type":"Equity",
+"4. region":"United States",
+"5. marketOpen":"09:30",
+"6. marketClose":"16:00",
+"7. timezone":"UTC-04",
+"8. currency":"USD",
+"9. matchScore":"0.7500"
+},
+{
+"1. symbol":"AAPEX",
+"2. name":"Aberdeen Asia-Pacific (ex-Japan) Equity Fund Institutional Service Cla",
+"3. type":"Mutual Fund",
+"4. region":"United States",
+"5. marketOpen":"09:30",
+"6. marketClose":"16:00",
+"7. timezone":"UTC-04",
+"8. currency":"USD",
+"9. matchScore":"0.7500"
+},
+{
+"1. symbol":"AAP2.LON",
+"2. name":"Leverage Shares 2x Apple ETP Securities A",
+"3. type":"ETF",
+"4. region":"United Kingdom",
+"5. marketOpen":"08:00",
+"6. marketClose":"16:30",
+"7. timezone":"UTC+01",
+"8. currency":"USD",
+"9. matchScore":"0.6667"
+}
 ]
 }

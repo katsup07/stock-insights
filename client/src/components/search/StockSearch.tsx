@@ -1,8 +1,21 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { useStockKeywordsSearch } from './useStockKeywordsSearch';
+import StockSearchResults from './StockSearchResults';
 
-const StockSearch: FC = () => {
-  const { searchKeywords, setSearchKeywords, handleKeywordsSearch } = useStockKeywordsSearch();
+interface StockSearchProps {
+  onSelectStock: (symbol: string) => void;
+}
+
+const StockSearch: FC<StockSearchProps> = ({ onSelectStock }) => {
+  const { 
+    searchKeywords, 
+    setSearchKeywords, 
+    handleKeywordsSearch, 
+    searchResults,
+    setSearchResults,
+    loading,
+    error
+  } = useStockKeywordsSearch();
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchKeywords(event.target.value);
@@ -14,20 +27,50 @@ const StockSearch: FC = () => {
     
     handleKeywordsSearch(searchKeywords);
   }
+  const [notification, setNotification] = useState<string | null>(null);
+  
+  const handleStockSelect = (symbol: string) => {
+    onSelectStock(symbol);
+    // Show notification
+    setNotification(`Selected stock: ${symbol}`);
 
+    setTimeout(() => setSearchResults(null), 1000);
+    setTimeout(() => setNotification(null), 3000);
+  };
   return (
-    <div className="p-3 flex items-center bg-gray-800 rounded-lg shadow-md gap-3">
-      <input
-        type="text"
-        placeholder="Search for a stock ticker (e.g., AAPL)"
-        className="w-full p-3 bg-gray-800 text-white border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-        value={searchKeywords}
-        onChange={handleInputChange}
+    <div className="flex flex-col">
+      <div className="p-3 flex items-center bg-gray-800 rounded-lg shadow-md gap-3">
+        <input
+          type="text"
+          placeholder="Search for a stock ticker (e.g., AAPL)"
+          className="w-full p-3 bg-gray-800 text-white border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          value={searchKeywords}
+          onChange={handleInputChange}
+          onKeyDown={(e) => e.key === 'Enter' && onHandleKeywordsSearch()}
+        />
+        <button className="p-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-200"
+          onClick={onHandleKeywordsSearch}>
+          Search
+        </button>
+      </div>
+      
+      {notification && (
+        <div className="mt-2 p-3 bg-indigo-500 text-white rounded-lg shadow-md animate-fade-in">
+          {notification}
+        </div>
+      )}
+      
+      {error && (
+        <div className="mt-2 p-3 bg-red-900 text-white rounded-lg shadow-md">
+          {error}
+        </div>
+      )}
+      
+      <StockSearchResults 
+        results={searchResults?.bestMatches || null} 
+        onSelectStock={handleStockSelect}
+        isLoading={loading}
       />
-      <button className="p-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-200"
-        onClick={onHandleKeywordsSearch}>
-        Search
-      </button>
     </div>
   );
 };

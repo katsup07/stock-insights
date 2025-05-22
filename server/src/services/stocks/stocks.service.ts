@@ -17,44 +17,44 @@ export class StocksService{
    * Fetches stock data based on the stock symbol.
    * @param stockSymbol The stock symbol to fetch data for.
    * @returns The stock data for the specified symbol.
-   */
-  async getStockData(stockSymbol: string): Promise<StockTimeSeriesResponseDto> {
+   */  async getStockData(stockSymbol: string): Promise<StockTimeSeriesResponseDto> {
     // Using mock data during development
     return transformStockTimeSeriesResponse(stockData);
     
     // TODO: Remove above line and uncomment the API call below
-    // const url = `${this.baseUrl}?function=TIME_SERIES_WEEKLY&symbol=${stockSymbol}&apikey=${this.apiKey}`;
+    const url = `${this.baseUrl}?function=TIME_SERIES_WEEKLY&symbol=${stockSymbol}&apikey=${this.apiKey}`;
 
-    // console.log(`Fetching stock data from: ${url}`);
-    //  try {
-    //   const response = await axios.get<StockTimeSeriesRawResponseDto>(url, {
-    //     headers: { 'User-Agent': 'NestJS App' },
-    //   });
+    console.log(`Fetching stock data from: ${url}`);
+     try {
+      const response = await axios.get<StockTimeSeriesRawResponseDto>(url, {
+        headers: { 'User-Agent': 'NestJS App' },
+      });
 
-    //   return transformStockTimeSeriesResponse(response.data);
-    // } catch (error) {
-    //   handleStockApiError(error, 'fetching weekly stock data by symbol');
-    // }
+      return transformStockTimeSeriesResponse(response.data);
+    } catch (error) {
+      // This function will throw an exception, so it never actually returns undefined
+      throw handleStockApiError(error, 'fetching weekly stock data by symbol');
+    }
   }
   /**
    * Fetches stock data based on a keyword.
    * @param keyword The keyword to search for.
    * @returns The stock data matching the keyword.
-   */
-  async getStockDataByKeyword(keyword: string): Promise<StockSearchOutput> {
+   */  async getStockDataByKeyword(keyword: string): Promise<StockSearchOutput> {
     return removeNumbersFromStockSearchResponse(keywordsSearchResults); // TODO: Remove this line and uncomment the API call below
-    // const url = `${this.baseUrl}?function=SYMBOL_SEARCH&keywords=${keyword}&apikey=${this.apiKey}`;
+    const url = `${this.baseUrl}?function=SYMBOL_SEARCH&keywords=${keyword}&apikey=${this.apiKey}`;
 
-    // console.log(`Fetching stock data by keyword from: ${url}`);    
-    // try {
-    //   const response = await axios.get(url, {
-    //     headers: { 'User-Agent': 'NestJS App' },
-    //   });
+    console.log(`Fetching stock data by keyword from: ${url}`);    
+    try {
+      const response = await axios.get(url, {
+        headers: { 'User-Agent': 'NestJS App' },
+      });
 
-    //   return response.data;
-    // } catch (error) {
-    //   handleStockApiError(error, 'fetching stock data by keyword');
-    // }
+      return response.data;
+    } catch (error) {
+      // This function will throw an exception, so it never actually returns undefined
+      throw handleStockApiError(error, 'fetching stock data by keyword');
+    }
   }
 
 }
