@@ -1,6 +1,7 @@
-import { FC, useState } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import { useStockKeywordsSearch } from './useStockKeywordsSearch';
 import StockSearchResults from './StockSearchResults';
+import Modal from '../ui/Modal';
 
 interface StockSearchProps {
   onSelectStock: (symbol: string) => void;
@@ -26,17 +27,28 @@ const StockSearch: FC<StockSearchProps> = ({ onSelectStock }) => {
       return;
     
     handleKeywordsSearch(searchKeywords);
-  }
+  }  
   const [notification, setNotification] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   
   const handleStockSelect = (symbol: string) => {
     onSelectStock(symbol);
     // Show notification
     setNotification(`Selected stock: ${symbol}`);
+    
+    // Close the modal
+    setIsModalOpen(false);
 
     setTimeout(() => setSearchResults(null), 1000);
     setTimeout(() => setNotification(null), 3000);
   };
+  // Open modal when search results are available or when loading
+  useEffect(() => {
+    if (loading || (searchResults?.bestMatches && searchResults.bestMatches.length > 0))
+      setIsModalOpen(true);
+    
+  }, [searchResults, loading]);
+
   return (
     <div className="flex flex-col">
       <div className="p-3 flex items-center bg-gray-800 rounded-lg shadow-md gap-3">
@@ -66,11 +78,18 @@ const StockSearch: FC<StockSearchProps> = ({ onSelectStock }) => {
         </div>
       )}
       
-      <StockSearchResults 
-        results={searchResults?.bestMatches || null} 
-        onSelectStock={handleStockSelect}
-        isLoading={loading}
-      />
+      {/* Display StockSearchResults in Modal */}
+      <Modal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)}
+        title="Stock Search Results"
+      >
+        <StockSearchResults 
+          results={searchResults?.bestMatches || null} 
+          onSelectStock={handleStockSelect}
+          isLoading={loading}
+        />
+      </Modal>
     </div>
   );
 };
