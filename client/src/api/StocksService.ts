@@ -11,4 +11,13 @@ export class StocksService {
 
     return await response.json();
   }
+
+  async getStocksByKeyword(keywords: string): Promise<any> {
+    const response = await fetch(`${baseApiUrl}/stocks/keywords/${keywords}`);
+
+    if (!response.ok) 
+        throw new Error(`Error fetching stock data by keyword: ${response.statusText}`);
+
+    return await response.json();
+  }
 }

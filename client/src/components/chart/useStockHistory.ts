@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { ApiClient } from "../../../api/ApiClient";
 import { ChartDataPoint, StockData } from "./interfaces";
 import { processStockData } from "./utils";
+import { ApiClient } from "../../api/ApiClient";
 
 const apiClient = ApiClient.getInstance();
 

@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import Navbar from './Navbar';
-import StockSearch from './StockSearch';
+import StockSearch from './search/StockSearch';
 import ChartArea from './chart/ChartArea';
 
 const Layout: FC = () => {

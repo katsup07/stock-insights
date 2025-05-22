@@ -21,4 +21,8 @@ export class ApiClient{
     async getStockHistory(symbol: string): Promise<any> {
       return await this.stocksService.getStocksHistory(symbol);
     }
+
+    async getStockByKeywords(keywords: string): Promise<any> {
+      return await this.stocksService.getStocksByKeyword(keywords);
+    }
 }
