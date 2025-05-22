@@ -1,0 +1,63 @@
+/* Toast customization for Stock Insights app */
+
+/* Progress bar color */
+.Toastify__progress-bar {
+  background: #12da9e;
+  height: 4px;
+}
+
+/* Common toast styling */
+.Toastify__toast {
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-family: inherit;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  border-left: 4px solid #12da9e;
+  transition: transform 0.3s ease;
+}
+
+.Toastify__toast:hover {
+  transform: translateY(-2px);
+}
+
+/* Dark theme customization (matching the project's dark theme) */
+.Toastify__toast-theme--dark {
+  background-color: rgba(31, 41, 55, 0); /* semi-transparent */
+  color: #e5e7eb;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* for Safari */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* optional: to help with contrast */
+}
+
+.Toastify__toast-theme--dark .Toastify__toast-icon {
+  color: #3b82f6;
+}
+
+.Toastify__close-button--dark {
+  color: #e5e7eb;
+  opacity: 0.7;
+}
+
+.Toastify__close-button--dark:hover {
+  opacity: 1;
+}
+
+/* Toast type-specific styles */
+.Toastify__toast--success {
+  border-left-color: #12da9e;
+}
+
+.Toastify__toast--error {
+  border-left-color: #ef4444;
+}
+
+.Toastify__toast--warning {
+  border-left-color: #f59e0b;
+}
+
+.Toastify__toast--info {
+  border-left-color: #3b82f6;
+}

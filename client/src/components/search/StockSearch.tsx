@@ -38,6 +38,7 @@ const StockSearch: FC<StockSearchProps> = ({ onSelectStock }) => {
     
     // Close the modal
     setIsModalOpen(false);
+    setSearchKeywords('');// Clear the search input
 
     setTimeout(() => setSearchResults(null), 1000);
     setTimeout(() => setNotification(null), 3000);
