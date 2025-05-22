@@ -45,5 +45,5 @@ import { StockTimeSeriesResponse } from "../../api/types/stockTimeSeries";
    // Format date for display
   export const formatDate = (dateStr: string) => {
     const date = new Date(dateStr);
-    return new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric' }).format(date);
+    return new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: 'numeric' }).format(date);
   };

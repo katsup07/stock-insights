@@ -58,7 +58,7 @@ const ChartArea: FC<ChartAreaProps> = ({ selectedSymbol = 'AAPL' }) => {
           margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
         >
           {/* Grid lines */}
-          <CartesianGrid strokeDasharray="3 3" stroke="#444" />
+          <CartesianGrid stroke="#0055a44b" />
           
           {/* X-axis (dates) */}
           <XAxis 
@@ -93,7 +93,7 @@ const ChartArea: FC<ChartAreaProps> = ({ selectedSymbol = 'AAPL' }) => {
             name="Price ($)" 
             stroke="#82ca9d" 
             strokeWidth={2} 
-            dot={{ r: 2 }} 
+            dot={{ r: 1 }} 
             activeDot={{ r: 6 }}
           />
         </LineChart>
@@ -114,7 +114,7 @@ const ChartArea: FC<ChartAreaProps> = ({ selectedSymbol = 'AAPL' }) => {
             onTimeframeSelect={handleTimeframeChange} 
           />
         </div>
-        <div className="flex items-center justify-center h-64 border-2 border-dashed border-gray-700 rounded-lg bg-gray-900">
+        <div className="flex items-center justify-center h-64 border-2 border-gray-700 rounded-lg bg-gray-900">
           {renderChartContent()}
         </div>
       </div>
