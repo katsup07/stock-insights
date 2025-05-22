@@ -28,20 +28,15 @@ const StockSearch: FC<StockSearchProps> = ({ onSelectStock }) => {
     
     handleKeywordsSearch(searchKeywords);
   }  
-  const [notification, setNotification] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   
   const handleStockSelect = (symbol: string) => {
     onSelectStock(symbol);
-    // Show notification
-    setNotification(`Selected stock: ${symbol}`);
-    
     // Close the modal
     setIsModalOpen(false);
     setSearchKeywords('');// Clear the search input
 
     setTimeout(() => setSearchResults(null), 1000);
-    setTimeout(() => setNotification(null), 3000);
   };
   // Open modal when search results are available or when loading
   useEffect(() => {
@@ -66,12 +61,6 @@ const StockSearch: FC<StockSearchProps> = ({ onSelectStock }) => {
           Search
         </button>
       </div>
-      
-      {notification && (
-        <div className="mt-2 p-3 bg-indigo-500 text-white rounded-lg shadow-md animate-fade-in">
-          {notification}
-        </div>
-      )}
       
       {error && (
         <div className="mt-2 p-3 bg-red-900 text-white rounded-lg shadow-md">
