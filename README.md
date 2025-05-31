@@ -33,12 +33,11 @@ The Stock Insights Application provides a digital platform for searching, analyz
 - 
 <br>
 
-![Vite-React-TS-05-22-2025_08_33_PM (1)](https://github.com/user-attachments/assets/e5b9a5b2-481c-46f1-b31c-705466fc1158)
+![Vite-React-TS-05-31-2025_06_50_PM](https://github.com/user-attachments/assets/2d56c9a3-17a9-4943-b052-9937dc295ff6)
 
 <br>
 
-![Vite-React-TS-05-22-2025_08_33_PM](https://github.com/user-attachments/assets/f532dfc3-ea34-430a-9b77-2fcbb19652d8)
-
+![Vite-React-TS-05-31-2025_06_49_PM](https://github.com/user-attachments/assets/23eb89fc-3a62-43b6-8af1-a0828e598576)
 
 ## 🖥️ Tech Stack
 
