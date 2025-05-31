@@ -72,7 +72,7 @@ const StockSearch: FC<StockSearchProps> = ({ onSelectStock }) => {
       <Modal 
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)}
-        title="Stock Search Results"
+        title={`Stock Search Results for ${searchKeywords}`}
       >
         <StockSearchResults 
           results={searchResults?.bestMatches || null} 

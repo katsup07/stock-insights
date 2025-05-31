@@ -1,6 +1,6 @@
 import './App.css';
 import Layout from './components/Layout';
-import { ToastContainer, Bounce } from 'react-toastify';
+import { ToastContainer, Slide } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './styles/toast.css'; // Import custom toast styles
 
@@ -11,7 +11,7 @@ function App() {
       <ToastContainer
         position="top-right"
         autoClose={2000}
-        transition={Bounce}
+        transition={Slide}
         theme="dark"
         pauseOnHover
         draggable={false}

@@ -3,6 +3,8 @@ import Navbar from './Navbar';
 import StockSearch from './search/StockSearch';
 import ChartArea from './chart/ChartArea';
 
+const currentYear = new Date().getFullYear();
+
 const Layout: FC = () => {
   const [selectedSymbol, setSelectedSymbol] = useState<string>('AAPL');
 
@@ -18,7 +20,7 @@ const Layout: FC = () => {
         <ChartArea selectedSymbol={selectedSymbol} />
       </main>
       <footer className="bg-gray-900 text-center p-4 text-sm text-gray-500 border-t border-gray-800">
-        StockInsights © 2025
+        StockInsights © {currentYear} | All rights reserved
       </footer>
     </div>
   );
